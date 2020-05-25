@@ -8,7 +8,7 @@ kalpa:
       ref: vars
       directory: ../
   vars:
-    repoName: kalpa-googleapis
+    repoName: kalpa-express-node-api
 
   play:
     # - name: Create Dir
@@ -18,7 +18,7 @@ kalpa:
     #   #  mode: 0
     - name: Creating github repo {{ vars.repoName }}
       kalpa-github:
-        desc: "This is a kalpa module"
+        desc: " #TBD"
         name: "{{ vars.repoName }}"
         action: create
         token: "{{ imported.config.gitconfig.token}}"

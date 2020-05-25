@@ -3,7 +3,7 @@ kalpa:
     gitconfig:
       file: github.yml
       ref: vars
-      directory: "{{ env.HOME }}/.config/"
+      directory: ../../../.config/
   vars:
     outputDir: "out"
     appName: "express-Api"
