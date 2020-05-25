@@ -2,15 +2,23 @@ preplay:
   renderer: jinja2
 kalpa:
   import:
+    # This imports var section the config.yml as config
     config:
-      file: .config.yml
-      ref:  vars
+      file: config.yml
+      ref: vars
       directory: ../
+  vars:
+    repoName: kalpa-googleapis
 
   play:
-    kalpa-execa:
-       - name: Touch a file
-         kalpa-execa:
-           cmd: touch
-           opts:
-              - foo.txt
+    # - name: Create Dir
+    #   kalpa-file:
+    #     action: mkdir
+    #     dir: "{{ imported.config.outputDir }}"
+    #   #  mode: 0
+    - name: Creating github repo {{ vars.repoName }}
+      kalpa-github:
+        desc: "This is a kalpa module"
+        name: "{{ vars.repoName }}"
+        action: create
+        token: "{{ imported.config.gitconfig.token}}"

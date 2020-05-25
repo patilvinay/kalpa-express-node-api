@@ -1,0 +1,22 @@
+preplay:
+  renderer: jinja2
+kalpa:
+  import:
+    # This imports var section the config.yml as config
+    config:
+      file: conf.yml
+      ref: vars
+      directory: ./
+  vars:
+    repoName: kalpa-googleapis
+
+  play:
+    - name: publish app
+      kalpa-googleapis:
+        action: publish
+        apkFile: "{{__data.cwd}}/app-release.apk"
+        keyFile: "{{ imported.config.keyFile }}"
+        track: production
+        packageName: "ngx.com.ngxadminservice"
+      #  mode: 0
+

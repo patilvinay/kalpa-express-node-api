@@ -1,9 +1,13 @@
-
 kalpa:
+  import:
+    gitconfig:
+      file: github.yml
+      ref: vars
+      directory: "{{ env.HOME }}/.config/"
   vars:
-      outputDir: '../expressapp'
-      appName: express-Api
-      Author: Vinay.hpatil@gmail.com
-      License: Apache-2.0
-
-     
+    outputDir: "out"
+    appName: "express-Api"
+    Author: "Vinay.hpatil@gmail.com"
+    License: "Apache-2.0"
+    gitconfig: "{{- imported.gitconfig|dump -}}"
+    keyFile: "{{ env.HOME }}/.config/playstore.json"
